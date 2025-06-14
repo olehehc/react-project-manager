@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --menu-width: 18.75rem;
+  --offset-top: 2rem;
+  --color-bg: #f9fafb;
+  --color-menu: #0d0d0d;
+  --color-text: #fff;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  padding-top: var(--offset-top);
+  background: var(--color-bg);
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+button {
+  font-size: 1rem;
+  border-radius: 0.5rem;
+}
+
+.app {
+  display: flex;
+  height: 100%;
+  align-items: stretch;
+}
+
+nav.menu {
+  flex: 0 0 var(--menu-width);
+  background: var(--color-menu);
+  color: var(--color-text);
+  overflow-y: auto;
+  padding: 2rem;
+  border-radius: 0 1rem 0 0;
+}
+
+nav.menu h1 {
+  text-transform: uppercase;
+  margin: 2rem 0 0 0;
+}
+
+nav.menu button {
+  margin: 2rem 0 0 0;
+  background-color: #272727;
+  color: white;
+  padding: 0.75rem 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+nav.menu button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+nav.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav.menu li button {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0 0 0;
+  background-color: #0d0d0d;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+nav.menu li button.selected {
+  background-color: #1a1a1a;
+}
+
+nav.menu li button:hover {
+  background-color: #1a1a1a;
+}
+
+main.project {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-right: 18.75rem;
+}
+
+main.project .project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+main.project h1 {
+  margin: 0;
+}
+
+main.project .delete-button {
+  background-color: transparent;
+  color: #718096;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+main.project .delete-button:hover {
+  color: #ba4646;
+}
+
+main.project p {
+  margin-bottom: 1rem;
+}
+
+main.project h2 {
+  margin-bottom: 1rem;
+}
+
+main.project p.date {
+  color: #718096;
+}
+
+main.project hr {
+  display: block;
+  margin-bottom: 1rem;
+  border: 1px inset;
+}
+
+main.project .task-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+main.project .task-header input {
+  width: 15rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+main.project .task-header input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
+main.project .task-header input:hover {
+  border-color: #9ca3af;
+}
+
+main.project .task-header button {
+  background-color: transparent;
+  color: #718096;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+main.project .task-header button:hover {
+  color: #5a677a;
+}
+
+main.project ul {
+  background-color: #f0f0f0;
+  padding: 1.5rem 0;
+}
+
+main.project li {
+  display: flex;
+  justify-content: space-between;
+}
+
+main.project .task-header p {
+  margin: 0 0 0 0;
+  padding: 0.5rem 1rem;
+}
+
+.add-project {
+  margin: 2rem 0 0 0;
+  display: flex;
+  justify-content: end;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.add-project .button-save {
+  background-color: #0d0d0d;
+  color: white;
+  padding: 0.75rem 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-project .button-save:hover {
+  background-color: #272727;
+}
+
+.add-project .button-cancel {
+  background-color: transparent;
+  color: #718096;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.add-project .button-cancel:hover {
+  color: #ba4646;
+}
+
+.add-project-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  background-color: #d8d8d8;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-project-textarea {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  background-color: #d8d8d8;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
