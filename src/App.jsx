@@ -26,12 +26,16 @@ function App() {
       projectTasks: newProject.projectTasks,
     };
     setProjects((prev) => [projectToAdd, ...prev]);
-    setSelectedProjectId(id); // - to check what it does!
+    setSelectedProjectId(id);
     setIsAdding(false);
   };
 
   const handleCancelAdd = () => {
     setIsAdding(false);
+  };
+
+  const handleDeleteProject = (projectId) => {
+    setProjects((prev) => prev.filter((p) => p.id !== projectId));
   };
 
   const handleSelectProject = (id) => {
@@ -81,6 +85,7 @@ function App() {
           <AddProject onSave={handleSaveProject} onCancel={handleCancelAdd} />
         ) : (
           <Project
+            onDelete={() => handleDeleteProject(projectToShow.id)}
             project={projectToShow}
             tasks={projectToShow.projectTasks}
             onAddTask={(task) => handleAddTask(projectToShow.id, task)}
