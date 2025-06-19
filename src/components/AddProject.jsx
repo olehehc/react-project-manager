@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+
+import Modal from "./Modal";
 
 export default function AddProject({ onSave, onCancel }) {
+  const modal = useRef();
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
 
   const [errors, setErrors] = useState({});
+  const [errorMessages, setErrorMessages] = useState([]);
 
   const handleSave = () => {
     const newErrors = {};
@@ -18,7 +23,10 @@ export default function AddProject({ onSave, onCancel }) {
       newErrors.dueDate = "The date cannot be in the past";
 
     if (Object.keys(newErrors).length > 0) {
+      console.log("Modal");
       setErrors(newErrors);
+      setErrorMessages(Object.values(newErrors));
+      modal.current.open();
       return;
     }
 
@@ -47,6 +55,14 @@ export default function AddProject({ onSave, onCancel }) {
 
   return (
     <>
+      <Modal ref={modal}>
+        <h2>Invalid Input</h2>
+        <ul>
+          {errorMessages.map((e, edx) => (
+            <li key={edx}>{e}</li>
+          ))}
+        </ul>
+      </Modal>
       <header className="add-project">
         <button type="button" className="button-cancel" onClick={handleCancel}>
           Cancel
@@ -63,7 +79,6 @@ export default function AddProject({ onSave, onCancel }) {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         ></input>
-        {errors.title && <div style={{ color: "red" }}>{errors.title}</div>}
       </p>
       <p>
         <label>DESCRIPTION</label>
@@ -81,7 +96,6 @@ export default function AddProject({ onSave, onCancel }) {
           value={dueDate}
           onChange={(e) => setDueDate(e.target.value)}
         ></input>
-        {errors.dueDate && <div style={{ color: "red" }}>{errors.dueDate}</div>}
       </p>
     </>
   );

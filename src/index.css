@@ -265,3 +265,15 @@ main.project .task-header p {
   box-sizing: border-box;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
+
+dialog.modal-dialog {
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background: white;
+}
